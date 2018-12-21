@@ -268,8 +268,12 @@ public class GridSet implements Info {
         long maxY = (long) Math.ceil(((rectangeBounds.getMaxY() - tileOrigin()[1]) / height));
 
         if (yBaseToggle) {
-            minY = minY + grid.getNumTilesHigh();
-            maxY = maxY + grid.getNumTilesHigh();
+            // xy互相一下，并且需要取个绝对值
+            long tmp = Math.abs(minY);
+            minY = Math.abs(maxY);
+            maxY = tmp;
+            // minY = minY + grid.getNumTilesHigh();
+            // maxY = maxY + grid.getNumTilesHigh();
         }
 
         // We substract one, since that's the tile at that position

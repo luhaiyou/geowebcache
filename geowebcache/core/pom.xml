@@ -8,6 +8,7 @@
     <artifactId>geowebcache</artifactId>
     <version>1.14.1</version><!-- GWC VERSION -->
   </parent>
+  <version>1.14.1-yl</version>
   <groupId>org.geowebcache</groupId>
   <artifactId>gwc-core</artifactId>
   <packaging>jar</packaging>
