@@ -268,7 +268,9 @@ public class ArcGISCacheLayer extends AbstractTileLayer {
             long coverageMaxY = grid.getNumTilesHigh() - 1;
 
             final int col = (int) tileIndex[0];
-            final int row = (int) (coverageMaxY - tileIndex[1]);
+            // luhaiyou y值直接由前端传递
+            // final int row = (int) (coverageMaxY - tileIndex[1]);
+            final int row = (int) tileIndex[1];
 
             tileContent = compactCache.getBundleFileResource(zoom, row, col);
 
@@ -373,7 +375,9 @@ public class ArcGISCacheLayer extends AbstractTileLayer {
         final long x = tileIndex[0];
         // invert the order of the requested Y ordinate, since ArcGIS caches are top-left to
         // bottom-right, and GWC computes tiles in bottom-left to top-right order
-        final long y = (coverageMaxY - tileIndex[1]);
+        // y值由前端传递正确的值，不考虑左上角右下角
+        // final long y = (coverageMaxY - tileIndex[1]);
+        final long y = tileIndex[1];
 
         String level = (this.hexZoom) ? Integer.toHexString(z) : Integer.toString(z);
         level = zeroPadder(level, 2);

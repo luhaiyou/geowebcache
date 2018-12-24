@@ -268,7 +268,7 @@ public class GridSet implements Info {
         long maxY = (long) Math.ceil(((rectangeBounds.getMaxY() - tileOrigin()[1]) / height));
 
         if (yBaseToggle) {
-            // xy互相一下，并且需要取个绝对值
+            // xy互相交换一下，并且需要取个绝对值
             long tmp = Math.abs(minY);
             minY = Math.abs(maxY);
             maxY = tmp;
@@ -278,6 +278,16 @@ public class GridSet implements Info {
 
         // We substract one, since that's the tile at that position
         long[] ret = {minX, minY, maxX - 1, maxY - 1, level};
+        System.out.println(tileOrigin()[0] + "," + tileOrigin()[1]);
+        System.out.println(
+                rectangeBounds.getMinX()
+                        + ","
+                        + rectangeBounds.getMaxX()
+                        + ","
+                        + rectangeBounds.getMinY()
+                        + ","
+                        + rectangeBounds.getMaxY());
+        System.out.println("计算边界:" + level + "," + minX + "," + maxX + "," + minY + "," + maxY);
 
         return ret;
     }

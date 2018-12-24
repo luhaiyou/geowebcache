@@ -7,17 +7,23 @@
     <artifactId>geowebcache</artifactId>
     <version>1.14.1</version><!-- GWC VERSION -->
   </parent>
+  <version>1.14.1-yl</version>
   <groupId>org.geowebcache</groupId>
   <artifactId>gwc-arcgiscache</artifactId>
   <packaging>jar</packaging>
   <name>ArcGIS Server tile cache support</name>
   <url>http://geowebcache.org</url>
 
+  <properties>
+    <geowebcache.version>1.14.1</geowebcache.version>
+  </properties>
+
+
   <dependencies>
     <dependency>
       <groupId>org.geowebcache</groupId>
       <artifactId>gwc-core</artifactId>
-      <version>${project.version}</version>
+      <version>${geowebcache.version}</version>
     </dependency>
 
     <dependency>
@@ -49,7 +55,7 @@
     <dependency>
       <groupId>org.geowebcache</groupId>
       <artifactId>gwc-core</artifactId>
-      <version>${project.version}</version>
+      <version>${geowebcache.version}</version>
       <scope>test</scope>
       <classifier>tests</classifier>
     </dependency>

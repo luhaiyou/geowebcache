@@ -96,6 +96,8 @@ class GridSetBuilder {
 
             xmax = xmin + (numTilesWide * width);
             ymin = ymax - (numTilesHigh * height);
+
+            // 从原点开始计算的范围
             gridSetExtent = new BoundingBox(xmin, ymin, xmax, ymax);
         }
 

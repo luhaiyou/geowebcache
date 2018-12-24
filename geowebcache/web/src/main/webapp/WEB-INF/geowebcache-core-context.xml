@@ -121,6 +121,9 @@
   
   <bean id="gwcGridSetBroker" class="org.geowebcache.grid.GridSetBroker">
   </bean>
+
+  <!-- 不创建这个类会报错 -->
+  <bean id="gwcArcGIGridsetConfigutation" class="org.geowebcache.arcgis.layer.ArcGISCacheGridsetConfiguration"/>
   
   <bean id="gwcDefaultGridsets" class="org.geowebcache.config.DefaultGridsets">
     <!-- Should we used EPSG:900913 instead of EPSG:3857 ? -->
