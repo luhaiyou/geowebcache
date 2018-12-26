@@ -293,12 +293,16 @@ public class ArcGISCacheLayer extends AbstractTileLayer {
             }
         }
 
+        // 增加缓存header
+        tile.getLayer().setExpirationHeader(tile.servletResp, (int) tile.getTileIndex()[2]);
+
         // TODO Add here
-        saveExpirationInformation((int) (tile.getExpiresHeader() / 1000));
+        // saveExpirationInformation((int) (tile.getExpiresHeader() / 1000));
 
         return tile;
     }
 
+    // 不知道方法的意义是什么，没有必要
     protected void saveExpirationInformation(int backendExpire) {
         this.saveExpirationHeaders = false;
 
@@ -487,6 +491,8 @@ public class ArcGISCacheLayer extends AbstractTileLayer {
          * NOTE: this method doesn't seem like belonging to TileLayer, but to GeoWebCacheDispatcher
          * itself
          */
+        // 直接调用父类
+        super.setExpirationHeader(response, zoomLevel);
         return;
     }
 }
